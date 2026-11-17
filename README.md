@@ -4,7 +4,14 @@ Web estática con las votaciones nominales del Congreso de los Diputados de los 
 
 ## Estado
 
-Fase inicial: solo esqueleto del proyecto. Todavía no hay datos ni código de pipeline.
+Descarga de datos en marcha: `scripts/descargar_votaciones.py` baja los ZIP de cada sesión de las legislaturas X a XV (enero de 2012 a hoy) a `data/raw/zip/`.
+
+```
+python3 scripts/descargar_votaciones.py                  # todas las legislaturas
+python3 scripts/descargar_votaciones.py --legislaturas XIV XV
+```
+
+Es reanudable: los ZIP ya descargados y válidos se omiten. Las incidencias quedan en `data/raw/incidencias.txt`.
 
 ## Plan
 
