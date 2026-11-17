@@ -49,6 +49,11 @@ def get(url: str) -> bytes:
         try:
             with urllib.request.urlopen(req, timeout=120) as r:
                 return r.read()
+        except urllib.error.HTTPError as e:
+            if e.code == 404:  # recurso inexistente: no tiene sentido reintentar
+                raise RuntimeError(f"404 en {url}") from e
+            log.warning("HTTP %s en %s (intento %d/%d)", e.code, url, intento, REINTENTOS)
+            time.sleep(2**intento)
         except (urllib.error.URLError, TimeoutError, ConnectionError) as e:
             espera = 2**intento
             log.warning("Error en %s (intento %d/%d): %s; reintento en %ds",
