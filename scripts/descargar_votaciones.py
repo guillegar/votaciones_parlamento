@@ -127,8 +127,8 @@ def main() -> int:
                 continue
             for ruta_rel in rutas_zip:
                 total_zip += 1
-                destino = RAIZ / "zip" / Path(ruta_rel).name
-                # Ruta relativa: Leg10/Sesion004/20120111/VOT_xxx.zip
+                destino = RAIZ / "zip" / ruta_rel.removeprefix("webpublica/opendata/votaciones/")
+                # Se conserva la ruta: data/raw/zip/Leg10/Sesion004/20120111/VOT_xxx.zip
                 if destino.exists() and zip_valido(destino):
                     continue
                 destino.parent.mkdir(parents=True, exist_ok=True)

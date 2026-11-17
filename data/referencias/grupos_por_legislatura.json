@@ -1,0 +1,345 @@
+[
+ {
+  "legislatura": "X",
+  "codOrg": 201,
+  "nombreGrupo": "Popular",
+  "nombreCompleto": "Grupo Parlamentario Popular en el Congreso",
+  "abreviatura": "G.P. Popular"
+ },
+ {
+  "legislatura": "X",
+  "codOrg": 202,
+  "nombreGrupo": "Socialista",
+  "nombreCompleto": "Grupo Parlamentario Socialista",
+  "abreviatura": "G.P. Socialista"
+ },
+ {
+  "legislatura": "X",
+  "codOrg": 203,
+  "nombreGrupo": "Catalán  (CiU)",
+  "nombreCompleto": "Grupo Parlamentario Catalán de Convergència i d'Unió",
+  "abreviatura": "G.P. Catalán  (CiU)"
+ },
+ {
+  "legislatura": "X",
+  "codOrg": 204,
+  "nombreGrupo": "La Izquierda Plural",
+  "nombreCompleto": "Grupo Parlamentario de IU, ICV-EUiA, CHA: La Izquierda Plural",
+  "abreviatura": "G.P. La Izquierda Plural"
+ },
+ {
+  "legislatura": "X",
+  "codOrg": 205,
+  "nombreGrupo": "Unión Progreso y Democracia",
+  "nombreCompleto": "Grupo Parlamentario de Unión Progreso y Democracia",
+  "abreviatura": "G.P. Unión Progreso y Democracia"
+ },
+ {
+  "legislatura": "X",
+  "codOrg": 206,
+  "nombreGrupo": "Vasco (EAJ-PNV)",
+  "nombreCompleto": "Grupo Parlamentario Vasco (EAJ-PNV)",
+  "abreviatura": "G.P. Vasco (EAJ-PNV)"
+ },
+ {
+  "legislatura": "X",
+  "codOrg": 207,
+  "nombreGrupo": "Mixto",
+  "nombreCompleto": "Grupo Parlamentario Mixto",
+  "abreviatura": "G.P. Mixto"
+ },
+ {
+  "legislatura": "XI",
+  "codOrg": 201,
+  "nombreGrupo": "Popular",
+  "nombreCompleto": "Grupo Parlamentario Popular en el Congreso",
+  "abreviatura": "G.P. Popular"
+ },
+ {
+  "legislatura": "XI",
+  "codOrg": 202,
+  "nombreGrupo": "Socialista",
+  "nombreCompleto": "Grupo Parlamentario Socialista",
+  "abreviatura": "G.P. Socialista"
+ },
+ {
+  "legislatura": "XI",
+  "codOrg": 203,
+  "nombreGrupo": "Podemos-En Comú Podem-En Marea",
+  "nombreCompleto": "Grupo Parlamentario Podemos-En Comú Podem-En Marea",
+  "abreviatura": "G.P. Podemos-En Comú Podem-En Marea"
+ },
+ {
+  "legislatura": "XI",
+  "codOrg": 204,
+  "nombreGrupo": "Ciudadanos",
+  "nombreCompleto": "Grupo Parlamentario Ciudadanos",
+  "abreviatura": "G.P. Ciudadanos"
+ },
+ {
+  "legislatura": "XI",
+  "codOrg": 205,
+  "nombreGrupo": "Catalán (DL)",
+  "nombreCompleto": "Grupo Parlamentario Catalán (Democràcia i Llibertat)",
+  "abreviatura": "G.P. Catalán (DL)"
+ },
+ {
+  "legislatura": "XI",
+  "codOrg": 206,
+  "nombreGrupo": "Vasco (EAJ-PNV)",
+  "nombreCompleto": "Grupo Parlamentario Vasco (EAJ-PNV)",
+  "abreviatura": "G.P. Vasco (EAJ-PNV)"
+ },
+ {
+  "legislatura": "XI",
+  "codOrg": 207,
+  "nombreGrupo": "Mixto",
+  "nombreCompleto": "Grupo Parlamentario Mixto",
+  "abreviatura": "G.P. Mixto"
+ },
+ {
+  "legislatura": "XI",
+  "codOrg": 208,
+  "nombreGrupo": "Esquerra Republicana",
+  "nombreCompleto": "Grupo Parlamentario de Esquerra Republicana",
+  "abreviatura": "G.P. Esquerra Republicana"
+ },
+ {
+  "legislatura": "XII",
+  "codOrg": 201,
+  "nombreGrupo": "Popular",
+  "nombreCompleto": "Grupo Parlamentario Popular en el Congreso",
+  "abreviatura": "G. P. Popular"
+ },
+ {
+  "legislatura": "XII",
+  "codOrg": 202,
+  "nombreGrupo": "Socialista",
+  "nombreCompleto": "Grupo Parlamentario Socialista",
+  "abreviatura": "G.P. Socialista"
+ },
+ {
+  "legislatura": "XII",
+  "codOrg": 203,
+  "nombreGrupo": "Confederal de Unidos Podemos-En Comú Podem-En Marea",
+  "nombreCompleto": "Grupo Parlamentario Confederal de Unidos Podemos-En Comú Podem-En Marea",
+  "abreviatura": "G.P. Confederal de Unidos Podemos-En Comú Podem-En Marea"
+ },
+ {
+  "legislatura": "XII",
+  "codOrg": 204,
+  "nombreGrupo": "Ciudadanos",
+  "nombreCompleto": "Grupo Parlamentario Ciudadanos",
+  "abreviatura": "G.P. Ciudadanos"
+ },
+ {
+  "legislatura": "XII",
+  "codOrg": 205,
+  "nombreGrupo": "Esquerra Republicana",
+  "nombreCompleto": "Grupo Parlamentario de Esquerra Republicana",
+  "abreviatura": "G.P. Esquerra Republicana"
+ },
+ {
+  "legislatura": "XII",
+  "codOrg": 207,
+  "nombreGrupo": "Vasco (EAJ-PNV)",
+  "nombreCompleto": "Grupo Parlamentario Vasco (EAJ-PNV)",
+  "abreviatura": "G.P. Vasco (EAJ-PNV)"
+ },
+ {
+  "legislatura": "XII",
+  "codOrg": 208,
+  "nombreGrupo": "Mixto",
+  "nombreCompleto": "Grupo Parlamentario Mixto",
+  "abreviatura": "G.P. Mixto"
+ },
+ {
+  "legislatura": "XIII",
+  "codOrg": 201,
+  "nombreGrupo": "Socialista",
+  "nombreCompleto": "Grupo Parlamentario Socialista",
+  "abreviatura": "G.P. Socialista"
+ },
+ {
+  "legislatura": "XIII",
+  "codOrg": 202,
+  "nombreGrupo": "Popular",
+  "nombreCompleto": "Grupo Parlamentario Popular",
+  "abreviatura": "G.P. Popular"
+ },
+ {
+  "legislatura": "XIII",
+  "codOrg": 203,
+  "nombreGrupo": "Ciudadanos",
+  "nombreCompleto": "Grupo Parlamentario Ciudadanos",
+  "abreviatura": "G.P. Ciudadanos"
+ },
+ {
+  "legislatura": "XIII",
+  "codOrg": 204,
+  "nombreGrupo": "Confederal de Unidas Podemos-En Comú Podem-Galicia en Común",
+  "nombreCompleto": "Grupo Parlamentario Confederal de Unidas Podemos-En Comú Podem-Galicia en Común",
+  "abreviatura": "G.P. Confederal de Unidas Podemos-En Comú Podem-Galicia en Común"
+ },
+ {
+  "legislatura": "XIII",
+  "codOrg": 205,
+  "nombreGrupo": "VOX",
+  "nombreCompleto": "Grupo Parlamentario VOX",
+  "abreviatura": "G.P. VOX"
+ },
+ {
+  "legislatura": "XIII",
+  "codOrg": 206,
+  "nombreGrupo": "Republicano",
+  "nombreCompleto": "Grupo Parlamentario Republicano",
+  "abreviatura": "G.P. Republicano"
+ },
+ {
+  "legislatura": "XIII",
+  "codOrg": 207,
+  "nombreGrupo": "Vasco (EAJ-PNV)",
+  "nombreCompleto": "Grupo Parlamentario Vasco (EAJ-PNV)",
+  "abreviatura": "G.P. Vasco (EAJ-PNV)"
+ },
+ {
+  "legislatura": "XIII",
+  "codOrg": 208,
+  "nombreGrupo": "Mixto",
+  "nombreCompleto": "Grupo Parlamentario Mixto",
+  "abreviatura": "G.P. Mixto"
+ },
+ {
+  "legislatura": "XIV",
+  "codOrg": 201,
+  "nombreGrupo": "Socialista",
+  "nombreCompleto": "Grupo Parlamentario Socialista",
+  "abreviatura": "G.P. Socialista"
+ },
+ {
+  "legislatura": "XIV",
+  "codOrg": 202,
+  "nombreGrupo": "Popular en el Congreso",
+  "nombreCompleto": "Grupo Parlamentario Popular en el Congreso",
+  "abreviatura": "G.P. Popular en el Congreso"
+ },
+ {
+  "legislatura": "XIV",
+  "codOrg": 203,
+  "nombreGrupo": "VOX",
+  "nombreCompleto": "Grupo Parlamentario VOX",
+  "abreviatura": "G.P. VOX"
+ },
+ {
+  "legislatura": "XIV",
+  "codOrg": 204,
+  "nombreGrupo": "Confederal de Unidas Podemos-En Comú Podem-Galicia en Común",
+  "nombreCompleto": "Grupo Parlamentario Confederal de Unidas Podemos-En Comú Podem-Galicia en Común",
+  "abreviatura": "G.P. Confederal de Unidas Podemos-En Comú Podem-Galicia en Común"
+ },
+ {
+  "legislatura": "XIV",
+  "codOrg": 205,
+  "nombreGrupo": "Republicano",
+  "nombreCompleto": "Grupo Parlamentario Republicano",
+  "abreviatura": "G.P. Republicano"
+ },
+ {
+  "legislatura": "XIV",
+  "codOrg": 206,
+  "nombreGrupo": "Ciudadanos",
+  "nombreCompleto": "Grupo Parlamentario Ciudadanos",
+  "abreviatura": "G.P. Ciudadanos"
+ },
+ {
+  "legislatura": "XIV",
+  "codOrg": 207,
+  "nombreGrupo": "Vasco (EAJ-PNV)",
+  "nombreCompleto": "Grupo Parlamentario Vasco (EAJ-PNV)",
+  "abreviatura": "G.P. Vasco (EAJ-PNV)"
+ },
+ {
+  "legislatura": "XIV",
+  "codOrg": 208,
+  "nombreGrupo": "EH Bildu",
+  "nombreCompleto": "Grupo Parlamentario Euskal Herria Bildu",
+  "abreviatura": "G.P. EH Bildu"
+ },
+ {
+  "legislatura": "XIV",
+  "codOrg": 209,
+  "nombreGrupo": "Plural",
+  "nombreCompleto": "Grupo Parlamentario Plural",
+  "abreviatura": "G.P. Plural"
+ },
+ {
+  "legislatura": "XIV",
+  "codOrg": 210,
+  "nombreGrupo": "Mixto",
+  "nombreCompleto": "Grupo Parlamentario Mixto",
+  "abreviatura": "G.P. Mixto"
+ },
+ {
+  "legislatura": "XV",
+  "codOrg": 201,
+  "nombreGrupo": "Popular en el Congreso",
+  "nombreCompleto": "Grupo Parlamentario Popular en el Congreso",
+  "abreviatura": "G.P. Popular en el Congreso"
+ },
+ {
+  "legislatura": "XV",
+  "codOrg": 202,
+  "nombreGrupo": "Socialista",
+  "nombreCompleto": "Grupo Parlamentario Socialista",
+  "abreviatura": "G.P. Socialista"
+ },
+ {
+  "legislatura": "XV",
+  "codOrg": 203,
+  "nombreGrupo": "VOX",
+  "nombreCompleto": "Grupo Parlamentario VOX",
+  "abreviatura": "G.P. VOX"
+ },
+ {
+  "legislatura": "XV",
+  "codOrg": 204,
+  "nombreGrupo": "Plurinacional SUMAR",
+  "nombreCompleto": "Grupo Parlamentario Plurinacional SUMAR",
+  "abreviatura": "G.P. Plurinacional SUMAR"
+ },
+ {
+  "legislatura": "XV",
+  "codOrg": 205,
+  "nombreGrupo": "Junts per Catalunya",
+  "nombreCompleto": "Grupo Parlamentario Junts per Catalunya",
+  "abreviatura": "G.P. Junts per Catalunya"
+ },
+ {
+  "legislatura": "XV",
+  "codOrg": 206,
+  "nombreGrupo": "Republicano",
+  "nombreCompleto": "Grupo Parlamentario Republicano",
+  "abreviatura": "G.P. Republicano"
+ },
+ {
+  "legislatura": "XV",
+  "codOrg": 207,
+  "nombreGrupo": "EH Bildu",
+  "nombreCompleto": "Grupo Parlamentario Euskal Herria Bildu",
+  "abreviatura": "G.P. EH Bildu"
+ },
+ {
+  "legislatura": "XV",
+  "codOrg": 208,
+  "nombreGrupo": "Vasco (EAJ-PNV)",
+  "nombreCompleto": "Grupo Parlamentario Vasco (EAJ-PNV)",
+  "abreviatura": "G.P. Vasco (EAJ-PNV)"
+ },
+ {
+  "legislatura": "XV",
+  "codOrg": 209,
+  "nombreGrupo": "Mixto",
+  "nombreCompleto": "Grupo Parlamentario Mixto",
+  "abreviatura": "G.P. Mixto"
+ }
+]
