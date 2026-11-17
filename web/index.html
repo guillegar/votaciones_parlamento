@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Votaciones del Congreso por grupo</title>
+<style>
+  :root { --bg:#fafaf7; --fg:#1d1d1b; --muted:#6b6b66; --line:#dcdcd5; --card:#fff;
+          --si:#2f7d4f; --no:#b23a3a; --abs:#b07d1e; --nv:#8a8a84; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#16161a; --fg:#eaeaea; --muted:#9a9aa0; --line:#34343a; --card:#1e1e24; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.5 system-ui,-apple-system,sans-serif; }
+  header, main, footer { max-width: 920px; margin: 0 auto; padding: 0 16px; }
+  header { padding-top: 24px; }
+  h1 { font-size: 1.6rem; margin: 0 0 4px; }
+  .sub { color: var(--muted); margin: 0 0 16px; }
+  .controles { display:grid; gap:8px; grid-template-columns: 1fr 1fr; margin-bottom: 12px; }
+  .controles input, .controles select { width:100%; padding:10px; font:inherit; border:1px solid var(--line);
+          border-radius:8px; background:var(--card); color:var(--fg); }
+  .controles .ancho { grid-column: 1 / -1; }
+  @media (max-width: 560px) { .controles { grid-template-columns: 1fr; } }
+  .resumen { color: var(--muted); font-size: .9rem; margin: 8px 0; }
+  .lista { display:grid; gap:8px; }
+  .voto { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px 14px;
+          cursor:pointer; text-align:left; width:100%; font:inherit; color:inherit; }
+  .voto:hover { border-color: var(--muted); }
+  .meta { color: var(--muted); font-size: .85rem; }
+  .titulo { margin: 2px 0; font-weight: 600; }
+  .etiqueta { display:inline-block; font-size:.8rem; padding:2px 8px; border-radius:999px; color:#fff; margin-right:6px; }
+  .si{background:var(--si)} .no{background:var(--no)} .abs{background:var(--abs)} .nv{background:var(--nv)}
+  .barra { display:flex; height:8px; border-radius:4px; overflow:hidden; margin-top:6px; background:var(--line); }
+  .barra span { display:block; height:100%; }
+  .detalle { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:16px; margin-top:16px; }
+  table { width:100%; border-collapse: collapse; font-size: .92rem; }
+  th, td { text-align:left; padding:6px 8px; border-bottom:1px solid var(--line); }
+  th.n, td.n { text-align:right; font-variant-numeric: tabular-nums; }
+  .cerrar { float:right; background:none; border:1px solid var(--line); border-radius:6px; padding:4px 10px;
+            color:inherit; cursor:pointer; font:inherit; }
+  .aviso { font-size:.85rem; color:var(--muted); border-left:3px solid var(--abs); padding-left:10px; margin: 12px 0; }
+  footer { color: var(--muted); font-size: .85rem; padding-top: 24px; padding-bottom: 32px; }
+  button.mas { margin: 12px 0; padding:10px 16px; border:1px solid var(--line); border-radius:8px;
+               background:var(--card); color:var(--fg); font:inherit; cursor:pointer; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Votaciones del Congreso por grupo</h1>
+  <p class="sub">Qué votó cada grupo parlamentario en cada votación, legislaturas X a XV (2012 – hoy).</p>
+  <div class="controles">
+    <select id="leg" aria-label="Legislatura"></select>
+    <select id="grupo" aria-label="Grupo parlamentario"></select>
+    <input id="q" class="ancho" type="search" placeholder="Buscar en el título o el expediente…" aria-label="Buscar">
+  </div>
+  <div class="resumen" id="resumen"></div>
+</header>
+<main>
+  <div class="lista" id="lista"></div>
+  <button class="mas" id="mas" hidden>Mostrar más</button>
+  <section class="detalle" id="detalle" hidden></section>
+  <p class="aviso">Los grupos se muestran con el código del Congreso (por ejemplo GS, GP). Hasta que se complete la tabla de equivalencias, algunos códigos de las legislaturas XI a XV no tienen nombre asociado.
+  Algunas votaciones no cuadran exactamente con los totales oficiales; en esos casos se usan los recuentos de diputados.</p>
+</main>
+<footer>
+  <p>Fuente: Congreso de los Diputados, datos abiertos de votaciones nominales (<a href="https://www.congreso.es/opendata/votaciones">congreso.es</a>). Datos no oficiales: esta web agrega y reorganiza esa información.</p>
+</footer>
+
+<script>
+const PAGINA = 60;
+let datos = [], filtradas = [], mostradas = 0, votacionAbierta = null;
+const $ = id => document.getElementById(id);
+const ETIQUETA = { si: "Sí", no: "No", abs: "Abstención", nv: "No vota" };
+
+function dominante(c) {
+  const par = Object.entries(c).filter(([k]) => k !== "nv" || true);
+  return par.sort((a, b) => b[1] - a[1])[0][0];
+}
+function total(c) { return c.si + c.no + c.abs + c.nv; }
+
+function cargar() {
+  fetch("datos/votaciones.json")
+    .then(r => r.json())
+    .then(j => {
+      datos = j.votaciones;
+      const legs = [...new Set(datos.map(v => v.legislatura))]
+        .sort((a, b) => parseInt(a.slice(3)) - parseInt(b.slice(3)));
+      $("leg").innerHTML = legs.slice().reverse().map(l => `<option value="${l}">${l.replace("Leg", "Legislatura ")}</option>`).join("");
+      $("leg").value = legs[legs.length - 1];
+      cambiarLegislatura();
+    });
+}
+
+function cambiarLegislatura() {
+  const leg = $("leg").value;
+  const grupos = new Set();
+  datos.filter(v => v.legislatura === leg).forEach(v => Object.keys(v.grupos).forEach(g => grupos.add(g)));
+  const orden = [...grupos].sort((a, b) => a.localeCompare(b, "es"));
+  $("grupo").innerHTML = `<option value="">Todos los grupos (totales)</option>` +
+    orden.map(g => `<option value="${g}">${g}</option>`).join("");
+  aplicarFiltros();
+}
+
+function aplicarFiltros() {
+  const leg = $("leg").value, grupo = $("grupo").value, q = $("q").value.trim().toLowerCase();
+  filtradas = datos.filter(v => v.legislatura === leg &&
+    (!grupo || v.grupos[grupo]) &&
+    (!q || (v.titulo + " " + (v.expediente || "")).toLowerCase().includes(q)));
+  filtradas.reverse(); // más recientes primero
+  mostradas = 0;
+  $("lista").innerHTML = "";
+  $("resumen").textContent = `${filtradas.length} votaciones` + (grupo ? ` con actividad de ${grupo}` : "");
+  pintarMas();
+}
+
+function pintarMas() {
+  const trozo = filtradas.slice(mostradas, mostradas + PAGINA);
+  $("lista").insertAdjacentHTML("beforeend", trozo.map(tarjeta).join(""));
+  mostradas += trozo.length;
+  $("mas").hidden = mostradas >= filtradas.length;
+}
+
+function tarjeta(v) {
+  const grupo = $("grupo").value;
+  const c = grupo ? v.grupos[grupo] : v.totales;
+  const tot = total(c) || 1;
+  const barra = ["si", "no", "abs", "nv"].map(k => `<span class="${k}" style="width:${(c[k] / tot * 100).toFixed(1)}%"></span>`).join("");
+  const etiqueta = grupo ? `<span class="etiqueta ${dominante(c)}">${grupo}: ${ETIQUETA[dominante(c)]}</span>` : "";
+  return `<button class="voto" data-id="${v.id}">
+    <div class="meta">${v.fecha} · Sesión ${v.sesion} · Votación ${v.numero}</div>
+    <div class="titulo">${escapar(v.titulo)}</div>
+    <div>${etiqueta}<span class="meta">Sí ${c.si} · No ${c.no} · Abst. ${c.abs} · No vota ${c.nv}</span></div>
+    <div class="barra">${barra}</div>
+  </button>`;
+}
+
+function abrir(id) {
+  const v = datos.find(x => x.id === id);
+  if (!v) return;
+  votacionAbierta = v;
+  const filas = Object.entries(v.grupos).sort((a, b) => total(b[1]) - total(a[1]))
+    .map(([g, c]) => `<tr><td>${g}</td><td class="n">${c.si}</td><td class="n">${c.no}</td><td class="n">${c.abs}</td><td class="n">${c.nv}</td></tr>`).join("");
+  $("detalle").innerHTML = `<button class="cerrar" id="cerrar">Cerrar</button>
+    <div class="meta">${v.fecha} · Sesión ${v.sesion} · Votación ${v.numero} · ${v.legislatura.replace("Leg", "Legislatura ")}</div>
+    <h2 style="font-size:1.15rem;margin:6px 0">${escapar(v.titulo)}</h2>
+    <p>${escapar(v.expediente || "")}</p>
+    <p class="meta">Total: Sí ${v.totales.si} · No ${v.totales.no} · Abstención ${v.totales.abs} · No vota ${v.totales.nv}</p>
+    <table><thead><tr><th>Grupo</th><th class="n">Sí</th><th class="n">No</th><th class="n">Abst.</th><th class="n">No vota</th></tr></thead>
+    <tbody>${filas}</tbody></table>`;
+  $("detalle").hidden = false;
+  $("detalle").scrollIntoView({ behavior: "smooth", block: "start" });
+  $("cerrar").onclick = () => { $("detalle").hidden = true; };
+}
+
+function escapar(s) {
+  return String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
+$("leg").addEventListener("change", cambiarLegislatura);
+$("grupo").addEventListener("change", aplicarFiltros);
+$("q").addEventListener("input", aplicarFiltros);
+$("mas").addEventListener("click", pintarMas);
+$("lista").addEventListener("click", e => {
+  const b = e.target.closest(".voto");
+  if (b) abrir(parseInt(b.dataset.id, 10));
+});
+cargar();
+</script>
+</body>
+</html>
